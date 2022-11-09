@@ -1,0 +1,24 @@
+.wrapper_div{
+    width: 100px;
+    height: 30px;
+}
+
+.forCss_div{
+    width: 0px;
+    height: 0;
+    background-color: rgba(85, 107, 107,.2);
+    border-radius: 5px;
+    transition: .2s;
+    
+}
+
+.text_p{
+    width: 200px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.wrapper_div:hover .forCss_div{
+    width: 200px;
+    height: 30px;
+}
