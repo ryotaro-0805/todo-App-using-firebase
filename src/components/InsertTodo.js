@@ -5,12 +5,14 @@ import {db} from '../firebase';
 const InsertTodo = ({ appSwitch }) => {
 
   const [switchButton, setSwitchButton] = useState('start');
+  const [errorCon,setErrorCon]= useState('');
 
   const dataPush = async (data, date) => {
     try {
       await addDoc(collection(db, "posts"), {
         todo: data,
-        timeStamp: date
+        timeStamp: date,
+        check:'yet'
       });
       setSwitchButton('save');
     } catch (e) {
@@ -28,7 +30,6 @@ const InsertTodo = ({ appSwitch }) => {
     // });
     // console.log(updateTimestamp);
     const dateTime = new Date();
-    console.log(dateTime);
     // const getYears = dateTime.getFullYear();
     // const getMonse = dateTime.getMonth();
     // const getDate = dateTime.getDate();
@@ -41,10 +42,16 @@ const InsertTodo = ({ appSwitch }) => {
   }
   const getData = async (e) => {
     e.preventDefault();
-    const registeDate = await getDate();
-    dataPush(ref.current.value, registeDate);
-
+    if (ref.current.value.length>10){
+      setErrorCon('error');
+      console.log('error');
+    } else {
+      const registeDate = await getDate();
+      dataPush(ref.current.value, registeDate);
+      setErrorCon('');
+    }
   }
+
 
   const returnFnc = () => {
     appSwitch('start');
@@ -53,8 +60,10 @@ const InsertTodo = ({ appSwitch }) => {
 
   const html = [
     <div key={'html'}>
+      {errorCon === 'error' && <p>※予定は10文字以内で入力してください！</p>}
       <form onSubmit={getData}>
-        ToDoを入力してください
+      {errorCon === '' && <p>ToDoを入力してください(10文字以内)</p>}  
+      {errorCon === 'error' && <p>ToDoを入力してください</p>}
         <input ref={ref} type="text" />
       </form>
       <button onClick={returnFnc}>戻る</button>

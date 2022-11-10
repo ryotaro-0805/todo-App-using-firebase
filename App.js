@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import InsertTodo from './components/InsertTodo';
 import SeeTodo from './components/SeeTodo';
 

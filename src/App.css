@@ -1,3 +1,35 @@
+body{
+    text-align: center;
+}
+
+button{
+    margin: 50px 10px 0 10px;
+}
+
+.App{
+    width: 500px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.App h2{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    padding:50px 0 100px 0;
+    background-color: azure;
+    border: solid black 1px;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+
 .wrapper_div{
     width: 100px;
     height: 30px;
@@ -14,6 +46,7 @@
 
 .text_p{
     margin-left: 5px;
+    padding-left: 30px;
     display: flex;
     align-items: center;
     width: 500px;

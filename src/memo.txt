@@ -1,0 +1,5 @@
+～todo now～
+1.add item of 'check' in firestore
+2.default->'yet'
+3.done->switch 'done'　
+4.switching 'yet' or 'done' css -> 'active'

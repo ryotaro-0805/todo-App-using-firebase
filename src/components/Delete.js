@@ -16,13 +16,13 @@ const Delete = ({sendData ,setSwitcher}) => {
     };
 
     const startHtml=[
-      <div>
+      <div key={'startHtml_check'}>
       <p>『{sendData.data().todo}』を削除してよろしいでしょうか？</p>
       <button onClick={()=>clickFnc(sendData)}>決定</button>  
       </div>
     ]
     const daneHtml=[
-      <div>
+      <div key={'startHtml_delete'}>
       <p>削除しました。</p> 
       </div>
     ]

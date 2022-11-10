@@ -1,23 +1,26 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import InsertTodo from './components/InsertTodo';
 import SeeTodo from './components/SeeTodo';
 
 function App() {
-const [switchButton,setSwitchButton]=useState('start');
+  const [switchButton, setSwitchButton] = useState('start');
 
-const clickFnc=(clicked)=>{
-  clicked==='insert' && setSwitchButton('insert');
-  clicked==='see' && setSwitchButton('see');
-}
+  const clickFnc = (clicked) => {
+    clicked === 'insert' && setSwitchButton('insert');
+    clicked === 'see' && setSwitchButton('see');
+  }
 
   return (
     <div className="App">
-      {switchButton==='start' && <button onClick={()=>clickFnc('insert')}>Insert ToDo</button>}
-      {switchButton==='start' && <button onClick={()=>clickFnc('see')}>See ToDo</button>}
-      {switchButton==='insert' && <InsertTodo  appSwitch={setSwitchButton} /> }
-      {switchButton==='see' && <SeeTodo appSwitch={setSwitchButton} /> }
-    
+      <h2 className='wrapper'>ToDoアプリ</h2>
+      <div className="container">
+        {switchButton === 'start' && <h3>トップページ</h3>}
+        {switchButton === 'start' && <button onClick={() => clickFnc('insert')}>予定を入力する</button>}
+        {switchButton === 'start' && <button onClick={() => clickFnc('see')}>予定を見る</button>}
+        {switchButton === 'insert' && <InsertTodo appSwitch={setSwitchButton} />}
+        {switchButton === 'see' && <SeeTodo appSwitch={setSwitchButton} />}
+      </div>
     </div>
   );
 }

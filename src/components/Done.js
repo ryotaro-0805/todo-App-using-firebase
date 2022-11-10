@@ -1,33 +1,27 @@
 import React, { useState } from 'react'
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from '../firebase';
 
-const Done = ({sendData ,setSwitcher}) => {
-    const [switching, setSwitching] = useState('start');
+const Done = ({ sendData, setSwitcher }) => {
+    const updateFnc = async (sendData) => {
+        if (sendData.data().check === 'done') {
+            const changeData = doc(db, 'posts', sendData.id);
+            await updateDoc(changeData, {
+                check: 'yet'
+            });
+        } else {
+            const changeData = doc(db, 'posts', sendData.id);
+            await updateDoc(changeData, {
+                check: 'done'
+            });
+        }
+    }
 
-
-    console.log(sendData.data().innerHTML)
-    
-    // データー削除関数
-    // const clickFnc = async (sendData) => {
-    //     await deleteDoc(doc(db, 'posts', sendData.id));
-    //     setSwitching('daneHtml');
-    // };
-
-    // const startHtml = [
-    //     <div>
-    //         <p>『{sendData.data().todo}』を削除してよろしいでしょうか？</p>
-    //         <button onClick={() => clickFnc(sendData)}>決定</button>
-    //     </div>
-    // ]
-    // const daneHtml = [
-    //     <div>
-    //         <p>削除しました。</p>
-    //     </div>
-    // ]
+    updateFnc(sendData);
 
     return (
         <div>
-            {/* {switching === 'start' && startHtml} */}
-            {/* {switching === 'daneHtml' && daneHtml} */}
+            <p>変更しました。</p>
             <button onClick={() => setSwitcher('start')}>戻る</button>
         </div>
     )
