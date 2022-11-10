@@ -1,14 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
-import InsertTodo from './InsertTodo';
+// import InsertTodo from './InsertTodo';
 
 const Revise = ({ setSwitcher, sendData }) => {
     const [reveseWord, setReviseWord] = useState(sendData.data().todo);
     // console.table(sendData.data().todo);
     const [switchButton2, setSwitchButton2] = useState('start');
 
-    const changeData = () => {
-        setSwitchButton2('revese');
+    const changeData = (e) => {
+        e.preventDefault();
+        // setSwitchButton2('revese');
+        console.log(sendData.id);
     }
 
     const html = [
@@ -20,6 +22,7 @@ const Revise = ({ setSwitcher, sendData }) => {
                     console.log(e.target.value)
                 }
                 } value={reveseWord} />
+            <button type='submit'>変更する</button>
             </form>
             <button onClick={() => setSwitcher('start')}>戻る</button>
         </div>
@@ -29,7 +32,7 @@ const Revise = ({ setSwitcher, sendData }) => {
     return (
         <div>
             {switchButton2==='start' && html}
-            {switchButton2==='revise' && <InsertTodo />}
+            {/* {switchButton2==='revise' && <InsertTodo />} */}
         </div>
     )
 }
