@@ -43,25 +43,49 @@ const SeeTodo = ({ appSwitch }) => {
         html.target.classList.add('active');
     }
 
+    const day=  [ "日", "月", "火", "水", "木", "金", "土" ];
+
     const html = [
         <div key={'html'}>
             <h3>登録されているToDoリストを表示しています</h3>
             <hr />
             {loading && <p>LOADING NOW...</p>}
+            <p className='text_p header'>ToDo<span className='seeTodo_span'>登録日時</span></p>
+            <hr />
             {inData.map((data, index) => (
                 <div className='wrapper_div' key={index}>
                     <div className="forCss_div">
                         {data.data().check === 'done' ?
                             <div>
                                 <p onClick={(html) => { clickFnk(data); sendInnerHtml(html) }} className='text_p active'>
-                                    {data.data().todo} - {String(data.data().timeStamp.toDate()).split('GMT+0900 (日本標準時)')[0]}
-                                    </p>
+                                    {data.data().todo}<span className='seeTodo_span active'>
+                                        {/* {String(data.data().timeStamp.toDate()).split('GMT+0900 (日本標準時)')[0]} */}
+                                        {data.data().timeStamp.toDate().getFullYear() + '年' +
+                                            data.data().timeStamp.toDate().getMonth() + '月' +
+                                            data.data().timeStamp.toDate().getDate() + '日' +
+                                            '('+day[data.data().timeStamp.toDate().getDay()] + ')-' +
+                                            data.data().timeStamp.toDate().getHours() + '時' +
+                                            data.data().timeStamp.toDate().getMinutes() + '分'
+                                            // data.data().timeStamp.toDate().getSeconds() + '秒'
+                                            }
+                                    </span>
+                                </p>
                             </div> :
                             <div>
                                 <p onClick={(html) => { clickFnk(data); sendInnerHtml(html) }} className='text_p'>
-                                    {data.data().todo} - {String(data.data().timeStamp.toDate()).split('GMT+0900 (日本標準時)')[0]}
-                                    </p>
+                                    {data.data().todo}<span className='seeTodo_span'>
+                                        {/* {String(data.data().timeStamp.toDate()).split('GMT+0900 (日本標準時)')[0]} */}
+                                        {data.data().timeStamp.toDate().getFullYear() + '年' +
+                                            data.data().timeStamp.toDate().getMonth() + '月' +
+                                            data.data().timeStamp.toDate().getDate() + '日' +
+                                            '('+day[data.data().timeStamp.toDate().getDay()] + ')-' +
+                                            data.data().timeStamp.toDate().getHours() + '時' +
+                                            data.data().timeStamp.toDate().getMinutes() + '分'
+                                            // data.data().timeStamp.toDate().getSeconds() + '秒'
+                                            }
+                                    </span></p>
                             </div>
+
                         }
                     </div>
                 </div>

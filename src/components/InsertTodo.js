@@ -37,7 +37,8 @@ const InsertTodo = ({ appSwitch }) => {
     // const getMiutes = dateTime.getMinutes();
     // const getSeconds = dateTime.getSeconds();
     return new Promise((resolve, reject) => {
-      resolve(dateTime);
+      const sendDate=dateTime.getFullYear()+'.'+dateTime.getMonth()+'.'+dateTime.getDate();
+      resolve(dateTime,sendDate);
     });
   }
   const getData = async (e) => {

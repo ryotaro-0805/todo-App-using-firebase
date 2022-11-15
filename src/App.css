@@ -18,7 +18,7 @@ button{
 }
 
 .container{
-    padding:50px 0 100px 0;
+    padding:10px 0 30px 0;
     background-color: azure;
     border: solid black 1px;
 }
@@ -52,7 +52,15 @@ button{
     width: 500px;
     height: 30px;
     cursor: pointer;
+    position: relative;
 }
+
+.text_p.header{
+    font-weight: bold;
+    height: 30px;
+    transform: translateY(10px);
+}
+
 
 .wrapper_div:hover .forCss_div{
     width: 500px;
@@ -61,5 +69,14 @@ button{
 
 .text_p.active{
     color: gray;
+    text-decoration: line-through;
+}
+
+.seeTodo_span{
+    position: absolute;
+    left: 200px;
+}
+
+.seeTodo_span.active{
     text-decoration: line-through;
 }
