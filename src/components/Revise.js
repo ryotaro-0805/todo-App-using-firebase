@@ -27,7 +27,7 @@ const Revise = ({ setSwitcher, sendData }) => {
     }
 
     const html = [
-        <div key={'html'}>
+        <div className='revise_div' key={'html'}>
             <form onSubmit={changeData}>
                 {/* <input onChange={(e)=>console.log(e.target.value)} value={reveseWord} /> */}
                 <input onChange={(e) => {

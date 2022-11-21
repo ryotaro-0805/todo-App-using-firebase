@@ -16,7 +16,7 @@ const Delete = ({sendData ,setSwitcher}) => {
     };
 
     const startHtml=[
-      <div key={'startHtml_check'}>
+      <div  className='delete_div' key={'startHtml_check'}>
       <p>『{sendData.data().todo}』を削除してよろしいでしょうか？</p>
       <button onClick={()=>clickFnc(sendData)}>決定</button>  
       </div>
@@ -28,7 +28,7 @@ const Delete = ({sendData ,setSwitcher}) => {
     ]
   
   return (
-    <div>
+    <div className='delete_div'>
       {switching==='start' && startHtml}
       {switching==='daneHtml' && daneHtml}
       <button onClick={() => setSwitcher('start')}>戻る</button>
