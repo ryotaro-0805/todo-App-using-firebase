@@ -50,7 +50,7 @@ const SeeTodo = ({ appSwitch }) => {
             <h3>登録されているToDoリストを表示しています</h3>
             <hr />
             {loading && <p>LOADING NOW...</p>}
-            <p className='text_p header'>ToDo<span className='seeTodo_span'>登録日時</span></p>
+            <p className='text_p header'>ToDo<span className='seeTodo_span title'>登録日時</span></p>
             <hr />
             {inData.map((data, index) => (
                 <div className='wrapper_div' key={index}>

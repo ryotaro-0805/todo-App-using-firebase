@@ -27,3 +27,8 @@ button{
     margin: 0;
     padding: 0;
 }
+
+.footer_div{
+    width: 100%;
+    background-color: cadetblue;
+}
