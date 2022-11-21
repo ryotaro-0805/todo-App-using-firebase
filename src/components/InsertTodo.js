@@ -67,6 +67,7 @@ const InsertTodo = ({ appSwitch }) => {
       {errorCon === 'error' && <p>ToDoを入力してください</p>}
         <input ref={ref} type="text" />
       </form>
+      <button onClick={getData}>入力</button>
       <button onClick={returnFnc}>戻る</button>
     </div>
   ]
