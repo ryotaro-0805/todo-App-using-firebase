@@ -76,7 +76,7 @@ button{
 
 
 .wrapper_div:hover .forCss_div{
-    width: 500px;
+    width: 42vh;
     height: 30px;
 }
 
@@ -113,4 +113,8 @@ h3{
 
 .revise_button{
     margin-top: 10px;
+}
+
+button{
+    height:40px;
 }
