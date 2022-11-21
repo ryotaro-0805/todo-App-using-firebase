@@ -63,7 +63,7 @@ const InsertTodo = ({ appSwitch }) => {
     <div key={'html'}>
       {errorCon === 'error' && <p>※予定は10文字以内で入力してください！</p>}
       <form onSubmit={getData}>
-      {errorCon === '' && <p>ToDoを入力してください(10文字以内)</p>}  
+      {errorCon === '' && <p>ToDoを入力してください<br />(10文字以内)</p>}  
       {errorCon === 'error' && <p>ToDoを入力してください</p>}
         <input ref={ref} type="text" />
       </form>

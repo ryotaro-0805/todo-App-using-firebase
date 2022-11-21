@@ -9,14 +9,21 @@ const Revise = ({ setSwitcher, sendData }) => {
     const [reveseWord, setReviseWord] = useState(sendData.data().todo);
     // console.table(sendData.data().todo);
     const [switchButton2, setSwitchButton2] = useState('start');
+    const [errorCon, setErrorCon] = useState('');
 
     const changeData = async (e) => {
         e.preventDefault();
-        setSwitchButton2('revise');
-        const changeData = doc(db, 'posts', sendData.id);
-        await updateDoc(changeData, {
-            todo: reveseWord
-        });
+        console.log(reveseWord[0].length);
+        if (reveseWord[0].length > 10) {
+            setErrorCon('error');
+        } else {
+            setErrorCon('');
+            setSwitchButton2('revise');
+            const changeData = doc(db, 'posts', sendData.id);
+            await updateDoc(changeData, {
+                todo: reveseWord
+            });
+        }
     }
 
     const html = [
@@ -27,9 +34,9 @@ const Revise = ({ setSwitcher, sendData }) => {
                     setReviseWord([e.target.value]);
                 }
                 } value={reveseWord} />
-                <input type="submit" value="変更する" />
+                <input className='revise_input' type="submit" value="変更する" />
             </form>
-            <button onClick={() => setSwitcher('start')}>戻る</button>
+            <button className='revise_button' onClick={() => setSwitcher('start')}>戻る</button>
         </div>
     ]
 
@@ -42,6 +49,7 @@ const Revise = ({ setSwitcher, sendData }) => {
 
     return (
         <div>
+            {errorCon === 'error' && <p>※予定は10文字以内で入力してください！</p>}
             {switchButton2 === 'start' && html}
             {switchButton2 === 'revise' && html2}
         </div>

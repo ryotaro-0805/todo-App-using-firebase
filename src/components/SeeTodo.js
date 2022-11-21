@@ -95,8 +95,7 @@ const SeeTodo = ({ appSwitch }) => {
 
     const selectHtml = [
         <div key={'selectHtml'}>
-            {sendData && <h3>ToDoリスト『{sendData.data().todo}』に対しての</h3>}
-            <h3>処理を選択してください。</h3>
+            {sendData && <h3>ToDoリスト<br />『{sendData.data().todo}』<br />に対しての<br />処理を選択してください。</h3>}
             <div className='selectorWrapper' key={'selectHtml'}>
                 <button onClick={() => setSwitcher('revise')}>編集</button>
                 {sendData && sendData.data().check === 'done' && <button onClick={() => setSwitcher('done')}>実行済みを取り消す</button>}
