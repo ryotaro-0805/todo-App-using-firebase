@@ -43,7 +43,7 @@ const SeeTodo = ({ appSwitch }) => {
         html.target.classList.add('active');
     }
 
-    const day=  [ "日", "月", "火", "水", "木", "金", "土" ];
+    const day = ["日", "月", "火", "水", "木", "金", "土"];
 
     const html = [
         <div key={'html'}>
@@ -63,26 +63,26 @@ const SeeTodo = ({ appSwitch }) => {
                                         {data.data().timeStamp.toDate().getFullYear() + '年' +
                                             data.data().timeStamp.toDate().getMonth() + '月' +
                                             data.data().timeStamp.toDate().getDate() + '日' +
-                                            '('+day[data.data().timeStamp.toDate().getDay()] + ')-' +
+                                            '(' + day[data.data().timeStamp.toDate().getDay()] + ')-' +
                                             data.data().timeStamp.toDate().getHours() + '時' +
                                             data.data().timeStamp.toDate().getMinutes() + '分'
                                             // data.data().timeStamp.toDate().getSeconds() + '秒'
-                                            }
+                                        }
                                     </span>
                                 </p>
                             </div> :
-                            <div>
+                            <div className='wrapper-text_p'>
                                 <p onClick={(html) => { clickFnk(data); sendInnerHtml(html) }} className='text_p'>
                                     {data.data().todo}<span className='seeTodo_span'>
                                         {/* {String(data.data().timeStamp.toDate()).split('GMT+0900 (日本標準時)')[0]} */}
                                         {data.data().timeStamp.toDate().getFullYear() + '年' +
                                             data.data().timeStamp.toDate().getMonth() + '月' +
                                             data.data().timeStamp.toDate().getDate() + '日' +
-                                            '('+day[data.data().timeStamp.toDate().getDay()] + ')-' +
+                                            '(' + day[data.data().timeStamp.toDate().getDay()] + ')-' +
                                             data.data().timeStamp.toDate().getHours() + '時' +
                                             data.data().timeStamp.toDate().getMinutes() + '分'
                                             // data.data().timeStamp.toDate().getSeconds() + '秒'
-                                            }
+                                        }
                                     </span></p>
                             </div>
 
@@ -97,12 +97,14 @@ const SeeTodo = ({ appSwitch }) => {
         <div key={'selectHtml'}>
             {sendData && <h3>ToDoリスト『{sendData.data().todo}』に対しての</h3>}
             <h3>処理を選択してください。</h3>
-            <button onClick={() => setSwitcher('revise')}>編集</button>
-            {sendData && sendData.data().check === 'done' && <button onClick={() => setSwitcher('done')}>実行済みを取り消す</button>}
-            {sendData && sendData.data().check === 'yet' && <button onClick={() => setSwitcher('done')}>実行済みにする</button>}
+            <div className='selectorWrapper' key={'selectHtml'}>
+                <button onClick={() => setSwitcher('revise')}>編集</button>
+                {sendData && sendData.data().check === 'done' && <button onClick={() => setSwitcher('done')}>実行済みを取り消す</button>}
+                {sendData && sendData.data().check === 'yet' && <button onClick={() => setSwitcher('done')}>実行済みにする</button>}
 
-            <button onClick={() => setSwitcher('delete')}>削除</button>
-            <button onClick={() => setSwitcher('start')}>戻る</button>
+                <button onClick={() => setSwitcher('delete')}>削除</button>
+                <button onClick={() => setSwitcher('start')}>戻る</button>
+            </div>
         </div>
     ]
 

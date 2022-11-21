@@ -7,9 +7,12 @@ button{
 }
 
 .App{
-    width: 500px;
+    /* width: 500px; */
     text-align: center;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .App h2{
@@ -18,6 +21,8 @@ button{
 }
 
 .container{
+    display: flex;
+    flex-direction: column;
     padding:10px 0 30px 0;
     background-color: azure;
     border: solid black 1px;
@@ -49,11 +54,15 @@ button{
     padding-left: 30px;
     display: flex;
     align-items: center;
-    width: 500px;
+    width: 350px;
     height: 30px;
     cursor: pointer;
     position: relative;
 }
+
+/* .wrapper-text_p{
+    width: 95vw;
+} */
 
 .text_p.header{
     font-weight: bold;
@@ -75,8 +84,20 @@ button{
 .seeTodo_span{
     position: absolute;
     left: 200px;
+    font-size: 50%;
 }
 
 .seeTodo_span.active{
     text-decoration: line-through;
+}
+
+.selectorWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h3{
+    font-size: 15px;
 }

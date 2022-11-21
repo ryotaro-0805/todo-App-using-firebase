@@ -14,6 +14,8 @@ function App() {
   return (
     <div className="App">
       <h2 className='wrapper'>ToDoアプリ</h2>
+      <p style={{margin:'0',color:'purple'}}>-using Firebase-Firestore-</p>
+      <p style={{margin:'0 0 50px 0',color:'purple'}}>made by Ryotaro.</p>
       <div className="container">
         {switchButton === 'start' && <h3>トップページ</h3>}
         {switchButton === 'start' && <button onClick={() => clickFnc('insert')}>予定を入力する</button>}
