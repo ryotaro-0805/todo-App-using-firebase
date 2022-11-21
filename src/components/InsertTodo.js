@@ -60,7 +60,7 @@ const InsertTodo = ({ appSwitch }) => {
   }
 
   const html = [
-    <div key={'html'}>
+    <div className='insert_div' key={'html'}>
       {errorCon === 'error' && <p>※予定は10文字以内で入力してください！</p>}
       <form onSubmit={getData}>
       {errorCon === '' && <p>ToDoを入力してください<br />(10文字以内)</p>}  

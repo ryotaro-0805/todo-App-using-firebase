@@ -46,7 +46,7 @@ const SeeTodo = ({ appSwitch }) => {
     const day = ["日", "月", "火", "水", "木", "金", "土"];
 
     const html = [
-        <div key={'html'}>
+        <div className='see_div' key={'html'}>
             <h3>登録されているToDoリストを表示しています</h3>
             <hr />
             {loading && <p>LOADING NOW...</p>}
@@ -111,7 +111,7 @@ const SeeTodo = ({ appSwitch }) => {
         <div>
             {switcher === 'start' && html}
             {switcher === 'select' && selectHtml}
-            {switcher === 'start' && <button onClick={returnFnc}>戻る</button>}
+            {switcher === 'start' && <button className='see_button' onClick={returnFnc}>戻る</button>}
             {switcher === 'revise' && <Revise setSwitcher={setSwitcher} sendData={sendData} />}
             {switcher === 'delete' && <Delete setSwitcher={setSwitcher} sendData={sendData} />}
             {switcher === 'done' && <Done setSwitcher={setSwitcher} sendData={sendData} />}

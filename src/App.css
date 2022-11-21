@@ -20,7 +20,7 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-top: solid 20px red;
+    border-top: solid 10px red;
 }
 
 .App h2{
@@ -49,12 +49,12 @@ button{
 
 .wrapper_div{
     width: 100px;
-    height: 30px;
+    height: 40px;
 }
 
 .forCss_div{
     width: 0px;
-    height: 0;
+    height: 40px;
     background-color: rgba(85, 107, 107,.2);
     border-radius: 5px;
     transition: .2s;
@@ -86,7 +86,7 @@ button{
 
 .wrapper_div:hover .forCss_div{
     width: 42vh;
-    height: 30px;
+    height: 40px;
 }
 
 .text_p.active{
@@ -117,6 +117,7 @@ button{
 
 h3{
     font-size: 15px;
+    margin-bottom: 20px;
 }
 
 .revise_input{
@@ -132,7 +133,7 @@ button{
     font-size: 15px;
     display: block;
     height:40px;
-    margin: 30px auto 0;
+    /* margin: 30px auto 0; */
 }
 
 input{
@@ -140,18 +141,43 @@ input{
 }
 
 .mainWrapper_div{
+    background-color: beige;
     width: 100%;
-    min-height:calc(100Vh - 70px);
+    min-height:calc(100Vh - 60px);
+    min-height:calc(100svh - 60px);
 }
 
 .footer_div{
     color: white;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     width: 100%;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: cadetblue;
+}
+
+.footer_div span{
+    vertical-align: middle;
+}
+
+.insert_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.see_button{
+    margin: 50px auto;
+}
+
+.top_img{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    object-position: 0% 15%;
+    display: flex;
 }
