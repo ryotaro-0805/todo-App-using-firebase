@@ -85,12 +85,12 @@ button{
 
 
 .wrapper_div:hover .forCss_div{
-    width: 42vh;
+    width: 42vw;
     height: 40px;
 }
 
 .text_p.active{
-    color: gray;
+    color: rgb(128, 128, 128);
     text-decoration: line-through;
 }
 
@@ -159,6 +159,7 @@ input{
     justify-content: center;
     align-items: center;
     background-color: rgb(42, 58, 59);
+    border-bottom: solid 5px red;
 }
 
 .footer_div span{
