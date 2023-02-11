@@ -31,25 +31,28 @@ const InsertTodo = ({ appSwitch }) => {
     // console.log(updateTimestamp);
     const dateTime = new Date();
     // const getYears = dateTime.getFullYear();
-    // const getMonse = dateTime.getMonth();
+    const getMonse = dateTime.getMonth()+1;
     // const getDate = dateTime.getDate();
     // const getHourse = dateTime.getHours();
     // const getMiutes = dateTime.getMinutes();
     // const getSeconds = dateTime.getSeconds();
     return new Promise((resolve, reject) => {
-      const sendDate=dateTime.getFullYear()+'.'+dateTime.getMonth()+'.'+dateTime.getDate();
+      // const sendDate=dateTime.getFullYear()+'.'+getMonse+'.'+dateTime.getDate();
+      const sendDate='000-000-00'
       resolve(dateTime,sendDate);
-    });
+    });   
   }
   const getData = async (e) => {
     e.preventDefault();
-    if (ref.current.value.length>10){
-      setErrorCon('error');
-      console.log('error');
-    } else {
-      const registeDate = await getDate();
-      dataPush(ref.current.value, registeDate);
-      setErrorCon('');
+    if(!(ref.current.value.length===0)){
+      if (ref.current.value.length>10){
+        setErrorCon('error');
+        console.log('error');
+      } else {
+        const registeDate = await getDate();
+        dataPush(ref.current.value, registeDate);
+        setErrorCon('');
+      }
     }
   }
 
